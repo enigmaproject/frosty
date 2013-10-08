@@ -4,26 +4,45 @@ class Enigma
   class Node
     include Enigma::Etcd
 
-    def initialize(ip, connection)
+    def initialize(ip, environment, connection)
       @ip = ip
       @connection = connection
-      @base_path = "/#{environment}/services/#{ip}/"
-      @services
+      @base_path = "/#{environment}/nodes/#{ip}/"
+      refresh
     end
 
     def exists?
-      query(@connection, @base_path)
+      if query(@connection, @base_path).nil?
+        false
+      else
+        true
+      end
     end
 
     def fetch_services
-      query(@connection, @base_path + 'services').split(',')
+      ret = []
+      if exists?
+        services = query(@connection, @base_path + 'services')
+        unless services.nil?
+          ret = services.value.split(',')
+        end
+      end
+      ret
+    end
+
+    def refresh
+      @services = fetch_services
     end
 
     def add_service(name)
-      @services << name
+      @services.push name
     end
 
-    def save_node
+    def services
+      @services
+    end
+
+    def save
       services = @services.join(',')
       write(@connection, @base_path + 'services', services)
     end

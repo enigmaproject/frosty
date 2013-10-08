@@ -46,6 +46,6 @@ class Enigma
   end
 
   def node(name)
-    # should return a new node object
+    Enigma::Node.new(name, @environment, @connection)
   end
 end
