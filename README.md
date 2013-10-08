@@ -1,7 +1,7 @@
 SwedishChef
 ============
 
-This is built around the ITS infrastructure standards and is
+This is built around the Enigma infrastructure standards and is
 meant to be used in chef cookbooks and as part of a knife plugin.
 
 
@@ -41,18 +41,12 @@ If the service did not already exist in the environment then the first
 node to create the service by checking in will be declared master.
 
 both the node and service will be registered under environment in etcd/keys
-like etcd/keys/production/services/memcached and etcd/keys/production/nodes/fqdn
+like etcd/keys/production/services/memcached and etcd/keys/production/nodes/ip
 
-storage for our environment is another intesting challenge and while is 
+storage for our environment is another interesting challenge and while it is
 a service it should also be a seperate entity.
 
 etcd/keys/production/storage/jira_data/master <- master storage server hosting jira_data
 etcd/keys/production/storage/jira_data/slaves/host1/last_sync <- 20130930012145
 
 storage can and should be declared similarly to declaring a service.
-
-You should not be limited to environment ... there should be a cluster.
-
-etcd/keys/production/services/service_name/cluster_name/endpoints/endpoint_ip/
-
-cluster_status = online, offline
