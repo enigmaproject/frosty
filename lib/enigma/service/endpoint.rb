@@ -2,10 +2,9 @@ class Enigma
   class Service
     class Endpoint
       attr_accessor :status, :port, :role
-      def initialize(ip, port, role)
+      attr_reader :ip
+      def initialize(ip)
         @ip = ip
-        @port = port
-        @role = role
       end
     end
   end

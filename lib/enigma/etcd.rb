@@ -23,6 +23,7 @@ class Enigma
           h[response.key.split('/').pop] = response.value
         end
       end
+      h
     end
   end
 end

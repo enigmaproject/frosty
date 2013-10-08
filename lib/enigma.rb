@@ -42,7 +42,7 @@ class Enigma
   end
 
   def service(name)
-    # should return a new service object
+    Enigma::Service.new(name, @environment, @connection)
   end
 
   def node(name)
