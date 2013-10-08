@@ -10,7 +10,7 @@ CLOBBER.include('*.gem')
 namespace :gem do
   desc "Rebuild Gem"
   task :build do
-    `gem build swedishchef.gemspec`
+    `gem build enigma.gemspec`
   end
 
   desc "Install gem"
