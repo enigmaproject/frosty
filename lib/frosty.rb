@@ -1,10 +1,10 @@
-require 'enigma/service'
-require 'enigma/node'
-require 'enigma/etcd'
+require 'frosty/service'
+require 'frosty/node'
+require 'frosty/etcd'
 require 'etcd'
 
-class Enigma
-  include Enigma::Etcd
+class Frosty
+  include Frosty::Etcd
 
   attr_accessor :environment
   def initialize(server, port, options ={})
@@ -42,10 +42,10 @@ class Enigma
   end
 
   def service(name)
-    Enigma::Service.new(name, @environment, @connection)
+    Frosty::Service.new(name, @environment, @connection)
   end
 
   def node(name)
-    Enigma::Node.new(name, @environment, @connection)
+    Frosty::Node.new(name, @environment, @connection)
   end
 end

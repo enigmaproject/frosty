@@ -1,9 +1,9 @@
 require_relative 'service/endpoint'
-require 'enigma/etcd'
+require 'frosty/etcd'
 
-class Enigma
+class Frosty
   class Service
-    include Enigma::Etcd
+    include Frosty::Etcd
 
     attr_accessor :role, :status
     def initialize(name, environment, connection)
@@ -73,7 +73,7 @@ class Enigma
     def endpoint(ip)
       resp = query(@connection, @base_path + "endpoints/#{ip}")
 
-      ep = Enigma::Service::Endpoint.new(ip)
+      ep = Frosty::Service::Endpoint.new(ip)
       if resp.nil?
         if has_master?
           ep.role = 'slave'

@@ -1,4 +1,4 @@
-class Enigma
+class Frosty
   module Etcd
     def query(connection, key)
       begin

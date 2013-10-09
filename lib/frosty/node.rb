@@ -1,8 +1,8 @@
-require 'enigma/etcd'
+require 'frosty/etcd'
 
-class Enigma
+class Frosty
   class Node
-    include Enigma::Etcd
+    include Frosty::Etcd
 
     def initialize(ip, environment, connection)
       @ip = ip

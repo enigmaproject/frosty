@@ -6,12 +6,12 @@ Gem::Specification.new do |s|
   s.description = "Provides Libraries to query and save to etcd based on the enigma project"
   s.authors     = ["Jim Rosser"]
   s.email       = "jarosser06@gmail.com"
-  s.files       = ['lib/enigma.rb',
-                   'lib/enigma/node.rb',
-                   'lib/enigma/service.rb',
-                   'lib/enigma/etcd.rb',
-                   'lib/enigma/service/endpoint.rb']
+  s.files       = ['lib/frosty.rb',
+                   'lib/frosty/node.rb',
+                   'lib/frosty/service.rb',
+                   'lib/frosty/etcd.rb',
+                   'lib/frosty/service/endpoint.rb']
   s.license     = 'mit'
-  s.homepage    = 'https://github.com/enigmaproject/ruby-enigma'
+  s.homepage    = 'https://github.com/enigmaproject/frosty'
   s.add_dependency 'etcd'
 end

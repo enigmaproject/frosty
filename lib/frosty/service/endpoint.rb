@@ -1,4 +1,4 @@
-class Enigma
+class Frosty
   class Service
     class Endpoint
       attr_accessor :status, :port, :role
