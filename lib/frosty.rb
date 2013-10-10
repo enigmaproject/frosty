@@ -6,16 +6,26 @@ require 'etcd'
 class Frosty
   include Frosty::Etcd
 
-  attr_accessor :environment
-  def initialize(server, port, options ={})
+  attr_accessor :environment, :server, :port
+  def initialize(server = '127.0.0.1', port = '4001', options ={})
     @server = server
     @port = port
-    @connection = connect
     @environment = options['environment'] || 'default'
   end
 
+  def can_connect?
+    connect
+    ret = true
+    begin
+      @connection.get('/')
+    rescue
+      ret = false
+    end
+    ret
+  end
+
   def connect
-    connection = ::Etcd.client(:host => @server,
+    @connection = ::Etcd.client(:host => @server,
                                :port => @port)
   end
 
