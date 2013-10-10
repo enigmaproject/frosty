@@ -1,6 +1,6 @@
-require 'spec_helper'
+require_relative '../lib/frosty.rb'
 
-describe Enigma do
+describe Frosty do
   before :each do
     @frosty = Frosty.new('127.0.0.1', 4001)
   end
@@ -19,13 +19,13 @@ describe Enigma do
 
   describe "#service" do
     it "should return a new service object" do
-      @frosty.service.class.should == Frosty::Service
+      @frosty.service("memcached").class.should == Frosty::Service
     end
   end
 
   describe "#node" do
     it "should return a new node object" do
-      @frosty.node.class.should == Frosty::Node
+      @frosty.node("192.168.1.2").class.should == Frosty::Node
     end
   end
 end
