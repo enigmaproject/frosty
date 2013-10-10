@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name        = 'enigma'
+  s.name        = 'frosty'
   s.version     = '0.0.1.alpha1'
   s.date        = '2013-09-30'
   s.summary     = "Etcd with Chef"
