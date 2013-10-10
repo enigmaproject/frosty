@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'enigma'
-  s.version     = '0.0.1'
+  s.version     = '0.0.1.alpha1'
   s.date        = '2013-09-30'
   s.summary     = "Etcd with Chef"
   s.description = "Provides Libraries to query and save to etcd based on the enigma project"
